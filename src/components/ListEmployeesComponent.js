@@ -31,7 +31,13 @@ export const ListEmployeesComponent = () => {
     return (
         <div className="container">
             <h2 className="text-center">Employees List</h2>
-            <Link to="/add-employee" className="btn btn-primary mb-2">Add Employee</Link>
+            <div className="button-container">
+                <Link to="/add-employee" className="btn btn-primary mb-2">Add Employee</Link>
+                &nbsp;
+                <Link to="/positions" className="btn btn-primary mb-2">Positions</Link>
+                &nbsp;
+                <Link to="/contractTypes" className="btn btn-primary mb-2">Contract Types</Link>
+            </div>
             <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -44,7 +50,6 @@ export const ListEmployeesComponent = () => {
                 </thead>
                 <tbody>
                     {employees.map(employee => (
-                         console.log("Employee Position:", employee.position),
                         <tr key={employee.id}>
                             <td>{employee.id}</td>
                             <td>{employee.name}</td>
