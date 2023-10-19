@@ -28,6 +28,10 @@ export const AddContractTypeComponent = () => {
 
     const saveContractType = (e) => {
         e.preventDefault();
+        if (!contractType.name) {
+            alert("Field can't be empty.");
+            return;
+        }
         const newContractType = {
             name: contractType.name,
         };

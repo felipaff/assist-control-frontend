@@ -55,6 +55,10 @@ export const AddEmployeeComponent = () => {
 
     const saveEmployee = (e) => {
         e.preventDefault();
+        if (!employee.name) {
+            alert("Fields can't be empty.");
+            return;
+        }
         const newEmployee = {
             name: employee.name,
             position: { id: employee.positionId },

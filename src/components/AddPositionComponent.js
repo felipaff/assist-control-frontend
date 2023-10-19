@@ -28,6 +28,10 @@ export const AddPositionComponent = () => {
 
     const savePosition = (e) => {
         e.preventDefault();
+        if (!position.name) {
+            alert("Field can't be empty");
+            return;
+        }
         const newPosition = {
             name: position.name,
         };
