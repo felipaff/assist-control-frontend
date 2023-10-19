@@ -1,5 +1,4 @@
 import './App.css';
-import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeesComponent from './components/ListEmployeesComponent';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -29,7 +28,6 @@ function App() {
             <Route path='/edit-contractType/:id' element={<AddContractTypeComponent/>}></Route>         
           </Routes>
         </div>
-        <FooterComponent/>
       </BrowserRouter>
     </div>
   );
