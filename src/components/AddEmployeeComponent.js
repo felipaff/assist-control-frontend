@@ -13,33 +13,45 @@ export const AddEmployeeComponent = () => {
     const [contractTypes, setContractTypes] = useState([]);
     const { id } = useParams();
 
+    // Fetch positions and contract types when the component loads
     useEffect(() => {
-        EmployeeService.getPositions().then(response => {
-            setPositions(response.data);
-        }).catch(error => {
-            console.log(error);
-        });
-        EmployeeService.getContractTypes().then(response => {
-            setContractTypes(response.data);
-        }).catch(error => {
-            console.log(error);
-        });
-    }, []);
-
-    useEffect(() => {
-        if (id) {
-            EmployeeService.getEmployeeById(id).then((response) => {
-                const { name, position, contractType } = response.data;
-                setEmployee({
-                    name: name,
-                    positionId: position.id,
-                    contractTypeId: contractType.id,
-                });
-            }).catch(error => {
+        // Fetch positions
+        EmployeeService.getPositions()
+            .then(response => {
+                setPositions(response.data);
+            })
+            .catch(error => {
                 console.log(error);
             });
-        }
+
+        // Fetch contract types
+        EmployeeService.getContractTypes()
+            .then(response => {
+                setContractTypes(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }, []);
+
+    // Fetch employee data if editing an existing employee
+    useEffect(() => {
+        if (id) {
+            // Fetch employee data for editing
+            EmployeeService.getEmployeeById(id)
+                .then((response) => {
+                    const { name, position, contractType } = response.data;
+                    setEmployee({
+                        name: name,
+                        positionId: position.id,
+                        contractTypeId: contractType.id,
+                    });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }, [id]);
 
     const saveEmployee = (e) => {
         e.preventDefault();
@@ -50,21 +62,25 @@ export const AddEmployeeComponent = () => {
         };
 
         if (id) {
-            // Actualizar empleado existente
-            EmployeeService.updateEmployee(id, newEmployee).then((response) => {
-                console.log(response.data);
-                navigate("/employees");
-            }).catch(error => {
-                console.log(error);
-            });
+            // Update an existing employee
+            EmployeeService.updateEmployee(id, newEmployee)
+                .then((response) => {
+                    console.log(response.data);
+                    navigate("/employees");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         } else {
-            // Crear nuevo empleado
-            EmployeeService.createEmployee(newEmployee).then((response) => {
-                console.log(response.data);
-                navigate("/employees");
-            }).catch(error => {
-                console.log(error);
-            });
+            // Create a new employee
+            EmployeeService.createEmployee(newEmployee)
+                .then((response) => {
+                    console.log(response.data);
+                    navigate("/employees");
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     };
 

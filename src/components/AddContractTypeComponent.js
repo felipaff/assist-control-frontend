@@ -12,6 +12,7 @@ export const AddContractTypeComponent = () => {
 
     useEffect(() => {
         if (id) {
+            // Fetch contract type data for editing
             ContractTypeService.getContractTypeById(id)
                 .then((response) => {
                     const name = response.data;
@@ -32,7 +33,7 @@ export const AddContractTypeComponent = () => {
         };
 
         if (id) {
-            // Actualizar contractType existente
+            // Update existing contract type
             ContractTypeService.updateContractType(id, newContractType)
                 .then((response) => {
                     console.log(response.data);
@@ -42,7 +43,7 @@ export const AddContractTypeComponent = () => {
                     console.log(error);
                 });
         } else {
-            // Crear nuevo contractType
+            // Create a new contract type
             ContractTypeService.createContractType(newContractType)
                 .then((response) => {
                     console.log(response.data);

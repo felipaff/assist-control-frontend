@@ -12,6 +12,7 @@ export const AddPositionComponent = () => {
 
     useEffect(() => {
         if (id) {
+            // Fetch the position data for editing if an ID is provided
             PositionService.getPositionById(id)
                 .then((response) => {
                     const name = response.data;
@@ -32,7 +33,7 @@ export const AddPositionComponent = () => {
         };
 
         if (id) {
-            // Actualizar position existente
+            // Update an existing position
             PositionService.updatePosition(id, newPosition)
                 .then((response) => {
                     console.log(response.data);
@@ -42,7 +43,7 @@ export const AddPositionComponent = () => {
                     console.log(error);
                 });
         } else {
-            // Crear nueva position
+            // Create a new position
             PositionService.createPosition(newPosition)
                 .then((response) => {
                     console.log(response.data);
