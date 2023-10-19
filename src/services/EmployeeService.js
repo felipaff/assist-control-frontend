@@ -34,6 +34,15 @@ class EmployeeService{
     deleteEmployee(employeeId){
         return axios.delete(EMPLOYEE_BASE_REST_API_URL + "/" + employeeId);
     }
+
+    getEmployeesByFilters(positionId, contractTypeId) {
+        return axios.get(EMPLOYEE_BASE_REST_API_URL, {
+            params: {
+                positionId: positionId,
+                contractTypeId: contractTypeId
+            }
+        });
+    }
 }
 
 export default new EmployeeService();
