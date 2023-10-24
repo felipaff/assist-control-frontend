@@ -7,7 +7,8 @@ import { AddPositionComponent } from './components/AddPositionComponent';
 import { ListPositionsComponent } from './components/ListPositionsComponent';
 import { ListContractTypesComponent } from './components/ListContractTypesComponent';
 import { AddContractTypeComponent } from './components/AddContractTypeComponent';
-
+import { AddHoursWorkedComponent} from './components/AddHoursWorkedComponent';
+import { ListHoursWorkedComponent} from './components/ListHoursWorkedComponent';
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
             <Route path='/edit-position/:id' element={<AddPositionComponent/>}></Route>
             <Route path='/contractTypes' element={<ListContractTypesComponent/>}></Route>
             <Route path='/add-contractType' element={<AddContractTypeComponent/>}></Route>
-            <Route path='/edit-contractType/:id' element={<AddContractTypeComponent/>}></Route>         
+            <Route path='/edit-contractType/:id' element={<AddContractTypeComponent/>}></Route>
+            <Route path='/hours-worked/:id' element={<ListHoursWorkedComponent/>}></Route>
+            <Route path='/add-hoursWorked/:id' element={<AddHoursWorkedComponent/>}></Route>
           </Routes>
         </div>
       </BrowserRouter>

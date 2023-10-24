@@ -129,6 +129,8 @@ export const ListEmployeesComponent = () => {
                             <td>
                                 <Link className="btn btn-info" to={`/edit-employee/${employee.id}`}>Update</Link>
                                 <button style={{ marginLeft: "10px" }} className="btn btn-danger" onClick={() => deleteEmployee(employee)}>Delete</button>
+                                &nbsp;
+                                <Link className="btn btn-info" to={`/hours-worked/${employee.id}`}>Hours worked</Link>
                             </td>
                         </tr>
                     ))}
