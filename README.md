@@ -25,3 +25,4 @@ Thank you for using Assist Control App! This application helps you efficiently m
     - **Listing Employees**: Filter and search employees by name, position, and contract type.
     - **Adding Employees**: Register new employees with relevant information.
     - **Creating Contract Types**: Manage available contract types.
+    - **Adding Hours Worked**: Now, you can also add hours worked for an employee, enabling you to efficiently manage their work records.

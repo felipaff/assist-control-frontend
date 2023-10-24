@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Version 0.2.0]
+
+### Changes
+
+- **New Feature**: Added the ability to add hours worked for employees, allowing for efficient work record management.
+- **New Feature**: Introduced a page to view and manage hours worked records.
+
 ## [Version 0.1.0]
 
 ### Changes
